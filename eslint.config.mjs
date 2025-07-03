@@ -32,3 +32,15 @@ export default tseslint.config(
     },
   },
 );
+
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended', // <- ESSA LINHA é a mágica
+  ],
+  rules: {
+    'prettier/prettier': 'error',
+  },
+};
