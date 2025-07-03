@@ -9,10 +9,13 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { Theme } from '../entities/theme.entity';
 import { ThemeService } from '../services/theme.services';
+import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('/themes')
 export class ThemeController {
   constructor(private readonly themeService: ThemeService) {}
