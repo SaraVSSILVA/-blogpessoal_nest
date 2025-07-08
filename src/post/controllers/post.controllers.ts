@@ -9,11 +9,16 @@ import {
   ParseIntPipe,
   Put,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { PostService } from '../services/post.service';
 import { Post as PostEntity } from '../entities/post.entity';
-
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
+@ApiTags('Post')
+@UseGuards(JwtAuthGuard)
 @Controller('/posts')
+@ApiBearerAuth()
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
