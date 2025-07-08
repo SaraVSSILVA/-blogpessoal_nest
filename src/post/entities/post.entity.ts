@@ -30,13 +30,13 @@ export class Post {
   date: Date;
 
   // O decorator @ManyToOne indica que a Classe Post tem uma relação de muitos para um com a Classe Theme.
-  @ApiProperty({ type: () => Theme })  
+  @ApiProperty({ type: () => Theme })
   @ManyToOne(() => Theme, (theme) => theme.post, {
     onDelete: 'CASCADE',
   })
   theme: Theme;
 
-  @ApiProperty({ type: () => User }) 
+  @ApiProperty({ type: () => User })
   @ManyToOne(() => User, (user) => user.post, {
     onDelete: 'CASCADE',
   })

@@ -12,7 +12,6 @@ export class User {
   @Column({ length: 255, nullable: false })
   @ApiProperty()
   name: string;
-  
 
   @IsEmail()
   @IsNotEmpty()
